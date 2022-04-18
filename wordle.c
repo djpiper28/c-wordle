@@ -85,7 +85,8 @@ char *read_word()
   return NULL;
 }
 
-void print_word_help(char *word, char *guess) {
+void print_word_help(char *word, char *guess)
+{
   int seen_before[26];
   memset(seen_before, 0, sizeof(seen_before));
 
