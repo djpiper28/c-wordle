@@ -71,7 +71,7 @@ char *read_word()
           return output;
         }
       } else {
-        if (c >= 'A' && c <= 'a') {
+        if (c >= 'A' && c < 'a') {
           c = 'a' + c - 'A';
         }
         output[i] = c;
