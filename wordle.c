@@ -62,7 +62,11 @@ char *read_word()
   while (1) {
     puts("Enter a word:");
     printf("> ");
-    for (int c, i = 0; c = fgetc(stdin), (c == EOF ? exit(1) : 0), i < BUFFER_LENGTH; i++) {
+    for (int c, i = 0; c = fgetc(stdin), i < BUFFER_LENGTH; i++) {
+      if (c == EOF) {
+        exit(1);
+      }
+
       if (c == '\n') {
         if (i != BUFFER_LENGTH - 1) {
           break;
