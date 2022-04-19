@@ -21,7 +21,7 @@ char **read_words(int * length)
   }
 
   int index = 0; // how far into a word we are
-  for (int c;c = fgetc(f), c != EOF;) {
+  for (int c; c = fgetc(f), c != EOF;) {
     if (index < BUFFER_LENGTH - 1) {
       buffer[index] = c;
     }
@@ -62,7 +62,7 @@ char *read_word()
   while (1) {
     puts("Enter a word:");
     printf("> ");
-    for (int c, i = 0; c = fgetc(stdin), c != EOF && i < BUFFER_LENGTH; i++) {
+    for (int c, i = 0; c = fgetc(stdin), (c == EOF ? exit(1) : 0), i < BUFFER_LENGTH; i++) {
       if (c == '\n') {
         if (i != BUFFER_LENGTH - 1) {
           break;
@@ -77,7 +77,7 @@ char *read_word()
         output[i] = c;
       }
     }
-      
+    
     puts("Expected 5 letters try again.");
   }
 
